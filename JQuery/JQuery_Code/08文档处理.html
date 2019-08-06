@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//创建标签
+				var p1 = $("<p></p>");
+				//赋值
+				p1.html("谁家啊更多还是");
+				
+				//向每个匹配的元素内部追加内容。
+				//$(".box").append(p1);
+				
+				//把所有匹配的元素追加到另一个指定的元素元素集合中。
+				//p1.appendTo($(".box"));
+				
+				//在每个匹配的元素之后插入内容。
+				//$(".box").after(p1);
+				
+				//在每个匹配的元素之前插入内容。
+				//$(".box").before(p1);
+				
+				//将所有匹配的元素替换成指定的HTML或DOM元素。
+				//$(".box").replaceWith(p1);
+				
+				//从DOM中删除所有匹配的元素。
+				//$("h1").remove();
+				
+				//克隆匹配的DOM元素并且选中这些克隆的副本。
+				$("h1").clone().appendTo($(".box"));
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<h1>黄金开户</h1>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			td{
+				text-align: center;
+			}
+		</style>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn").click(function(){
+					var tr =$("<tr></tr>");
+					var td1 = $("<td></td>");
+					var td2 = $("<td></td>");
+					var td3 = $("<td></td>");		
+					td1.html($("#myid").val()).appendTo(tr);
+					td2.html($("#myname").val()).appendTo(tr);
+					td3.html("删除").addClass("active").appendTo(tr);					
+					tr.appendTo($("#tab"));
+					
+				});
+				$(document).on("click",".active",function(){
+					console.log("a");	
+					$(this).parent().remove();
+			
+				})
+			})
+		</script>
+	</head>
+	<body>
+		id:<input type="text" id="myid" />
+		name:<input type="text" id="myname" />
+		<button id="btn">保存</button>
+		<table border="1" width="400" id="tab">
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>操作</th>
+			</tr>
+		</table>
+	</body>
+</html>

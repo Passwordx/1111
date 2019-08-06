@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0px;
+			}
+			.list{
+				width: 90%;
+				margin: 0 auto;
+				list-style: none;
+			}
+			.list li:nth-child(1){
+				border-bottom: solid 1px #ccc;
+				padding: 0px;
+				background: transparent;
+				margin: 0;
+			}
+			.list li:nth-child(2){
+				padding: 0;
+				margin: 0;
+				background: transparent;
+			}
+			.list h3{
+				width: 150px;
+				border-bottom: solid 1px red;
+				text-align: center;
+			}
+			.list li{
+				height: 60px;
+				line-height: 60px;
+				position: relative;
+				display: flex;
+				align-items: center;
+				background: #eee;
+				padding: 10px 0px;
+				margin-bottom: 20px;
+			}
+			.info{
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				font-size: 0;
+			}
+			.info span{
+				font-size: 22px;
+				width: 100px;
+				display: inline-block;
+				text-align: center;
+			}
+			.box{
+				position: absolute;
+				right: 0px;
+				top: 0px;
+			}
+			.box1{
+				float: left;
+				width: 100px;
+				text-align: center;
+			}
+			.list img{
+				width: 60px;
+				vertical-align: middle;
+				margin: 0px 50px;
+			}
+			.text{
+				width: 200px;
+				display: inline-block;
+				line-height: 20px;
+			}
+			.list li:last-child{
+				background: transparent;
+				margin: 0;
+				padding: 0;
+				
+			}
+			.list li:last-child{
+				justify-content: flex-end;
+				font-size: 22px;
+			}
+			.money{
+				color: red;
+				font-size: 30px;
+				margin: 0px 10px;
+			}
+			.num,.num-,.numjia{
+				border: solid 1px #ccc;
+				padding: 0px 6px;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				user-select: none;
+			}
+		</style>
+		<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//全选 
+				$(".btn").click(function(){
+					if($(this).prop("checked")){
+						$(".check").prop("checked","true");
+						var s = 0;
+						for(var i=0;i<$(".sum").length;i++){
+							s+=($(".sum").eq(i).html()-0);
+						}
+						$(".money").html(s);
+					}else{
+						$(".check").removeProp("checked");
+						$(".money").html("0.00");
+					}
+					
+				})
+				function fn(that,n){
+					that.siblings(".num").html(n);
+					console.log(that.siblings(".num").html());
+					var n1 = that.parent().siblings(".cost").html()*n;//金额
+					that.parent().siblings(".sum").html(n1.toFixed(2));
+					var moneys = 0 ;
+					if(that.parent().parent().siblings(".check").prop("checked")){
+						for(var i=0;i<$(".check").length;i++){
+							if($(".check").eq(i).prop("checked")){
+								moneys+=($(".check").eq(i).siblings(".box").find(".sum").html()-0);
+							}
+						}
+						$(".money").html(moneys.toFixed(2));
+					}
+				}
+				//加号
+				$(".numjia").click(function(){
+					var n = $(this).siblings(".num").html();//数量
+					n++;
+					var that = $(this);
+					fn(that,n);
+				})
+				$(".num-").click(function(){
+					var n = $(this).siblings(".num").html();//数量
+					n--;
+					var that = $(this);
+					if(n>=1){
+						fn(that,n);
+					}
+				})
+				//选中商品
+				$(".check").click(function(){
+					if($(this).prop("checked")){
+						$(".money").html((($(".money").html()-0)+($(this).siblings(".box").find(".sum").html()-0)).toFixed(2));
+					}else{
+						$(".money").html((($(".money").html()-0)-($(this).siblings(".box").find(".sum").html()-0)).toFixed(2));
+					}
+				})
+				//删除
+				$(".delete").click(function(){
+					if($(this).parent().siblings(".check").prop("checked")){
+						$(".money").html(($(".money").html()-0-$(this).siblings(".sum").html()).toFixed(2));
+					}
+					$(this).parent().parent().remove();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul class="list">
+			<li>
+				<h3>全部商品</h3>
+			</li>
+			<li>
+				<input class="btn" type="checkbox" />全选
+				<div class="info">
+					<span>单价</span>
+					<span>数量</span>
+					<span>金额</span>
+					<span>操作</span>
+				</div>
+			</li>
+			<li>
+				<input class="check" type="checkbox" />
+				<img src="img/favicon(1).ico" />
+				<a class="text" href="#">的哈佛经典对方很健康的哈佛经典算法和跨境电商</a>
+				<div class="box">
+					<span class="box1 cost">150</span>
+					<div class="box1">
+						<span class="num-">-</span>
+						<span class="num">1</span>
+						<span class="numjia">+</span>
+					</div>
+					<span class="box1 sum">150</span>
+					<span class="box1 delete" >删除</span>
+				</div>
+			</li>
+			<li>
+				<input class="check" type="checkbox" />
+				<img src="img/favicon(1).ico"/>
+				<a class="text" href="#">的哈佛经典对方很健康的哈佛经典算法和跨境电商</a>
+				<div class="box">
+					<span class="box1 cost">120</span>
+					<div class="box1">
+						<span class="num-">-</span>
+						<span class="num">1</span>
+						<span class="numjia">+</span>
+					</div>
+					<span class="box1 sum">120</span>
+					<span class="box1 delete" >删除</span>
+				</div>
+			</li>
+			<li>
+				<input class="check" type="checkbox" />
+				<img src="img/favicon(1).ico" />
+				<a class="text" href="#">的哈佛经典对方很健康的哈佛经典算法和跨境电商</a>
+				<div class="box">
+					<span class="box1 cost">180.99</span>
+					<div class="box1">
+						<span class="num-">-</span>
+						<span class="num">1</span>
+						<span class="numjia">+</span>
+					</div>
+					<span class="box1 sum">180.99</span>
+					<span class="box1 delete" >删除</span>
+				</div>
+			</li>
+			<li>总价：<span class="money">00</span>元</li>
+		</ul>
+	</body>
+</html>

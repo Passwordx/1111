@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".btn1").click(function(){
+					console.log($(this).prop("checked"));
+					if($(this).prop("checked")){
+						$(".check").prop("checked","true");
+					}else{
+						$(".check").removeProp("checked");
+					}
+				})
+				$(".btn2").click(function(){					
+						for(var i=0;i<$(".check").length;i++){
+							console.log($(".check").eq(i).prop("checked"));
+							if($(".check").eq(i).prop("checked")){
+								$(".check").eq(i).removeProp("checked");
+							}else{
+								$(".check").eq(i).prop("checked","true");
+							}
+						}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input class="check" type="checkbox" />吃饭
+		<input class="check" type="checkbox" />吃饭
+		<input class="check" type="checkbox" />吃饭
+		<br />
+		<input class="btn1" type="checkbox" />全选
+		<input class="btn2"  type="checkbox" />反选
+	</body>
+</html>

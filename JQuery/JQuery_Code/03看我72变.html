@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 150px;
+				background: red;
+				text-align: center;
+				line-height: 150px;
+			}
+		</style>
+		<script src="js/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			1,  写一个定时器, 每隔1秒修改一次div内文字颜色和文字大小.
+//		 最开始这个文字是默认大小, 开启定时器后文字大小开始增大, 
+//		当增大了6次以后, 文字大小开始缩小, 缩小6次, 文字再开始增大…
+//		效果如下图:
+//			window.onload = function(){
+//				var box = document.getElementById("box");
+//				var i = 0 ;
+//				var n1 = 16 ;
+//				var n2 = 3 ;
+//				setInterval(function(){
+//					i++;
+//					n1+=n2;
+//					box.style.color = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+//					box.style.background = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+//					if(i%6==0){
+//						n2*=-1;
+//					}
+//					box.style.fontSize = n1+"px";
+//				},1000)
+//			}
+			$(function(){
+				var i = 0 ;
+				var n1 = 16 ;
+				var n2 = 3 ;
+				setInterval(function(){
+					i++;
+					n1+=n2;
+					$("#box").css("color","rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")");
+					$("#box").css("background","rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")");
+					if(i%6==0){
+						n2*=-1;
+					}
+					$("#box").css("font-size",n1+"px");
+				},1000)
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">看我72变</div>
+	</body>
+</html>

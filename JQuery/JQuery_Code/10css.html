@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				border:solid 1px black;
+				margin-top: 100px;
+				position: relative;
+				padding: 50px;
+			}
+			span{
+				background: red;
+				position: absolute;
+				top: 50px;
+				left: 50px;
+			}
+			body{
+				height: 3000px;
+			}
+		</style>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				//访问匹配元素的样式属性。
+				console.log($(".box").css("width"));
+				//$(".box").css("width","200px");
+				$(".box").css({"width":"200px","height":"150px"});
+				
+				//获取匹配元素在当前视口的相对偏移。
+				console.log($(".box").offset().top);
+				
+				//获取匹配元素相对父元素的偏移。
+				console.log($("span").position().top);
+				
+				//
+				console.log($(".box").height());
+				console.log($(".box").innerHeight());
+				console.log($(".box").outerHeight());
+				
+				$(window).scroll(function(){
+					console.log($("html,body").scrollTop());
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<span>123</span>
+		</div>
+	</body>
+</html>
