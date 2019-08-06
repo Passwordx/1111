@@ -1,0 +1,22 @@
+create table department(
+departmentId int primary key auto_increment , departmentName varchar(100) ,  
+departmentNumber  varchar(100)
+);
+
+create table duty (
+dutyId int primary key auto_increment , dutyName varchar(100) , 
+departmentId int ,
+foreign key (departmentId) references department(departmentId) on update cascade  on delete casade
+);
+
+create table relation (
+relationId int primary key auto_increment , 
+);
+
+create table employee(
+employeeId int primary key auto_increment , employeeSex vachar(30) , employeeBirthday date , 
+relationId int ,
+foreign key (relationId) references relation(relationId) on update cascade on delete cascade
+);
+
+create salary

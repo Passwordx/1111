@@ -1,0 +1,27 @@
+
+-- 一对一关系 --
+
+create table card(cardId int primary key auto_increment , cardCode varchar(100));
+
+create table human(humanId int primary key auto_increment , humanName varchar(100) , cardId int unique,foreign key (carId) references card(cardId) on update cascade );
+
+insert into card (cardCode) value ('45045125454113213');
+insert into huamn (humanName , caedId) value ('hgz' , 1 );
+
+
+--  一对多关系 --
+
+create table emamil(emamilId int primary key auto_increment , emamilAddress text ,huamnId int ,foreign key (humanId) references human(humanId) on update cascade );
+
+insert into email (emailAddress , humanId) value ('xaioming@yahoo.com' , 1 ) , ('xaioming@qq.com' , 1 ) , ('xaioming.xinlang.com' , 1 );
+
+update  human set humanid = 2323 where humanId = 1 ;
+
+
+-- 多对多关系 --
+
+create teacher_student_ralation ()
+
+create teacher (teacherId int primary key auto_increment , teacherName varchar (100) , studentId int , foreign key (studentId) references student(studentId) on update cascade ) ;
+
+create student (studentId int primary key auto_increment , studentName varchar (100) , teacher int , foreign key (teacherId) references teacher (teacherId) on update cascade) ;

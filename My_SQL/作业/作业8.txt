@@ -1,0 +1,33 @@
+1、用存储过程实现销售、进存货。
+2、用函数来返回employee工资所得税的合计。
+3、用存储过程和函数实现：
+
+/*通话汇总*/
+create table callList(
+   phoneNo varchar(20) primary key , /*手机号码*/
+   phoneMonth  varchar(20) , /*月份  yyyyMM*/
+   callTime int ,   /*通话时长,单位：分钟*/
+   dataNum double(10,3), /*数据流量，单位为KB*/
+   smsNum int           /*短消息数量,单位为条*/
+);
+
+/*付费方式*/
+create table pay(
+    payMode varchar(10) primary key , /*计费模式*/
+    callPay double(10,2),    /*通话单位时长费用*/
+    dataPay double(10,2),    /*数据流量单价*/
+    smsPay  double(10,2)   /*短消息单价*/
+);
+
+
+结果：
+计算出每个手机号的费用总额，
+create table fee（
+   phoneNo varchar(20) ,   /*手机号*/
+   phoneMonth  varchar(20) , /*月份  yyyyMM*/
+   feeAmount double(10,2) , /*总费用*/
+    foreign key (phoneNo) references callList(phoneNo)
+    on delete cascade 
+    on update cascade ,
+）；
+

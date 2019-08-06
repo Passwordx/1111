@@ -1,0 +1,13 @@
+1、创建表house、human、humanEmail、girlFriends。字段除了外键，包括id，name即可
+   要求：  house 是human的主表
+     human是humanEmail的主表
+     human是girlFriends的主表
+     house是girlFriends的主表
+用子查询实现：
+（1）找出全部有女朋友的人所在的house名称（用两种方法）
+（2）找出所有的有邮箱但是没有女朋友的人的名称。
+ 
+2、根据作业3所创建的student_score表，创建student和course（课程表），student_score分别参照student和course（课程表）， 得到查询结果
+    学生姓名  课程名称   成绩
+3、找出数学分数比小明的所有课程的分数都高的学生姓名，用两种方法实现
+4、找出英语分数与小明其中一门课程相同分数的数学

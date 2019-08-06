@@ -1,0 +1,9 @@
+1、创建数据库study，在数据库中创建表student,teacher,university,collage。每个表至少要有三个字段。
+2、在第一题student表（a)新增stuentInformation字段，text类型(b)将studentSex字段改为ssex，
+类型为varchar（20）。(c)将studentBirthday改名为birthDate。(d)删除studentInformation字段。
+(e)将表名改为myStudent
+3、对第二题的myStudent表新增数据  用四种不同的方法新增数据
+4、对第一题的表新增数据
+   （1）将所有满足1995-05-01以后出生的学生的性别改为男；
+   （2)删除1994-01-01到1994-12-31之间出生的所有学生。至少要用两种不同的方法实现。
+    (3)将性别为男或者年龄在20-23岁之间的学生生日修改为1993-03-03，用两种不同的方法实现
